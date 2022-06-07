@@ -1,14 +1,21 @@
 //DEFINO ORIGEN POR DEFECTO MONTEVIDEO
-let origen = 'Montevideo'
+let origen = 'Montevideo';
 
 //DEFINO DESTINO VACÍO QUE ES LO QUE VA A ELEGIR EL USUARIO
 let destino = '';
 
 //DEFINO PRECIO POR KM
-const precioKM = 2.5
+const precioKM = 2.5;
+
+
+function Calcular (distance, cantidadPasajeros) {
+    let precioViaje = (parseInt(distance) * precioKM * parseInt(cantidadPasajeros));
+    return precioViaje;
+}
+
 
 //FUNCIÓN PARA CALCULAR EL PRECIO DEL VIAJE EN BASE A LA (DISTANCIA DEL DESTINO * CANTIDAD DE PASAJEROS * PRECIO DEL KM)
-function calcPrecioViaje(){
+function Comenzar() {
     while(destino !== 'SALIR'){
         destino = prompt('Ingresa tu destino');
         switch (destino) {    
@@ -89,11 +96,11 @@ function calcPrecioViaje(){
                 break;
             
             default:
-                alert('Usted ha ingresado una ciudad incorrecta.')
+                alert('Usted ha ingresado una ciudad incorrecta.');
         }
         cantidadPasajeros = prompt('Ingresa la cantidad de pasajeros');
-        let precioViaje = (parseInt(distance) * precioKM * parseInt(cantidadPasajeros));
+        let precioViaje = Calcular(distance, cantidadPasajeros);
         alert('El precio de tu viaje desde ' + origen + ' a ' + destino + ' para ' + cantidadPasajeros + ' persona(s) es de ' + '$'+precioViaje);
     }
 }
-calcPrecioViaje();
+Comenzar();
