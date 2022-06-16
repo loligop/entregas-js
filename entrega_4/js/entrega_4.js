@@ -1,15 +1,12 @@
 //CLASE DE VIAJES PUBLICADOS
 class ViajesPublicado{
     constructor (idViaje , origen, destino, usuario, asientosLibres, precio){
-        this.idViaje = idViaje
-        this.origen = origen
+        this.idViaje = idViaje;
+        this.origen = origen;
         this.destino = destino;
         this.usuario = usuario;
         this.asientosLibres = asientosLibres;
         this.precio = precio;
-    }
-    mostrarViaje(){
-        return this.origen + this.destino;
     }
 }
 const trip1 = new ViajesPublicado(1, 'Montevideo', 'Paysandú', 'Francisco', 3, 300);
@@ -37,17 +34,23 @@ let mostrarViajes = '';
 //DEFINO PRECIO POR KM
 const precioKM = 2.5;
 
+class viajesFiltrados{
+    constructor(origen, destino){
+        this.origen = origen;
+        this.destino = destino;
+    }
+}
 
-function Calcular (distance, cantidadPasajeros) {
+function calcularPrecio (distance, cantidadPasajeros) {
     let precioViaje = (parseInt(distance) * precioKM * parseInt(cantidadPasajeros));
     return precioViaje;
 }
 
 
 //FUNCIÓN PARA CALCULAR EL PRECIO DEL VIAJE EN BASE A LA (DISTANCIA DEL DESTINO * CANTIDAD DE PASAJEROS * PRECIO DEL KM)
-function Comenzar() {
+function comenzar() {
     while(destino !== 'SALIR'){
-        destino = prompt('Ingresa tu destino');
+        destino = prompt('ingresa tu destino');
         switch (destino) {    
             case 'Salto':
                 distance = 496;
@@ -122,27 +125,33 @@ function Comenzar() {
                 break;
         
             case 'SALIR':
-                alert('Usted decidió salir. Chau.');
+                alert('usted decidió salir. chau.');
                 break;
             
             default:
-                alert('Usted ha ingresado una ciudad incorrecta.');
+                alert('usted ha ingresado una ciudad incorrecta.');
         }
-        cantidadPasajeros = prompt('Ingresa la cantidad de pasajeros');
-        let precioViaje = Calcular(distance, cantidadPasajeros);
-        alert('El precio de tu viaje desde ' + origen + ' a ' + destino + ' para ' + cantidadPasajeros + ' persona(s) es de ' + '$'+precioViaje);
-        mostrarViajes = prompt('¿Desea ver los viajes existentes a ' + destino + '? (SI/NO)');
+
+        cantidadPasajeros = prompt('ingresa la cantidad de pasajeros');
+
+        let precioViaje = calcularPrecio(distance, cantidadPasajeros);
+
+        alert('el precio de tu viaje desde ' + origen + ' a ' + destino + ' para ' + cantidadPasajeros + ' persona(s) es de ' + '$'+precioViaje);
+        
+        mostrarViajes = prompt('¿desea ver los viajes existentes a ' + destino + '? (SI/NO)');
+        
         console.log(mostrarViajes);
             if (mostrarViajes === 'SI') {
                 let filtrarViajes = array.filter((viaje) => {
                     return viaje.destino === destino;
                 })
-                console.log(filtrarViajes);
+                for (const viajes of filtrarViajes){
+                    alert(`para su viaje de ${viajes.origen} a ${viajes.destino} encontramos el siguiente viaje por el usuario ${viajes.usuario} con ${viajes.asientosLibres} asientos libres y el costo es de $${viajes.precio}c/u.`);
+                }
                 break;
             } else{
-                mostrarViajes = alert('Te esperamos en tu próxima visita.')
+                mostrarViajes = alert('te esperamos en tu próxima visita.')
             }
-            
     }
 }
-Comenzar();
+comenzar();

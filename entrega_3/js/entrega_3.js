@@ -15,8 +15,12 @@ const v3 = new PublishedTrips(3, 'Artigas', 'Montevideo', 'Daniela', 1, 1075);
 const v4 = new PublishedTrips(4, 'Maldonado', 'Rocha', 'Mario', 1, 350);
 const v5 = new PublishedTrips(5, 'Treinta y Tres', 'Tacuarembó', 'Fiorella', 2, 890);
 
-console.log(v1);
-console.log(v2);
-console.log(v3);
-console.log(v4);
-console.log(v5);
+const array = [];
+array.push(v1);
+array.push(v2);
+array.push(v3);
+array.push(v4);
+array.push(v5);
+
+console.log(array);
+
