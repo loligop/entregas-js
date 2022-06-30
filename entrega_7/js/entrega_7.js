@@ -33,6 +33,9 @@ let li = document.createElement("li");
 
 let p = document.createElement("p");
 
+let span = document.createElement("span");
+
+//FUNCIÓN BUSCAR VIAJE
 function buscarViajes(){
     let form = document.getElementById('search-form');
     form.addEventListener('submit', (event) =>{
@@ -54,6 +57,7 @@ function buscarViajes(){
          //LISTA CON VIAJES ENCONTRADOS
         let tripsList = document.getElementById("trips-list");
         for (const viajes of filtrarViajes){
+            localStorage.clear();
             li.remove();
             p.remove();
             li.innerHTML = `
@@ -64,9 +68,20 @@ function buscarViajes(){
             Costo: $${viajes.precio} c/u.` ;
             tripsList.appendChild(li)
         };
-        
+        //GUARDO EN EL LOCAL STORAGE LA ÚLTIMA BÚSQUEDA
+        localStorage.setItem('search_origin',(origen));
+        localStorage.setItem('search_destiny',(destino));
+        let origin_storage = localStorage.getItem('search_origin');
+        let destiny_storage = localStorage.getItem('search_destiny');
+        let storageResults = document.getElementById('last-search-container');
+        span.innerHTML = (`
+        Su última búsqueda fue de ${origin_storage} a ${destiny_storage}
+            `
+        )
+        storageResults.appendChild(span);
     })
 }
+//BOTÓN BUSCAR
 const button = document.getElementById('search-button');
 button.onclick = ()=>{
     buscarViajes();
