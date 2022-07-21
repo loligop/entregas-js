@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="description" content="TuTuAPP es una plataforma para compartir viajes, ya sea para ir a otra ciudad o hasta para ir a la trabajar.">
+    <meta property="keywords" content="viajes, compartir, artigas, salto, paysandú, río negro, florida, montevideo, maldonado, treinta y tres, rocha, tacuarembó, rivera, durazno, canelones, melo, mercedes, minas, san josé, colonia, trinidad">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/ff87ca208e.js" crossorigin="anonymous"></script>
+    <title>Últimos Viajes - TuTuAPP</title>
+    <link rel="shortcut icon" href="../assets/img/favicon.png" />
+</head>
+<body onload="loadLastTrips()">
+    <!-- header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+            <div class="container-fluid">
+                <!-- logo -->
+                <a href="../index.html">
+                    <img src="../assets/img/logo-extended-tutu-white.svg" alt="Logo TuTuAPP" width="150px" />
+                </a>
+                <!-- hamburger button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <input class="checkbox" type="checkbox" name="" id="" />
+                    <div class="hamburger-lines">
+                        <span class="line line1"></span>
+                        <span class="line line2"></span>
+                        <span class="line line3"></span>
+                    </div>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <!-- main-menu -->
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../index.html">Inicio</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="ultimos-viajes.html">Últimos viajes</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#ingresar" id="login">Ingresar</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#" id="logout">Salir</a>
+                      </li>
+                    </ul>
+                    <span id="login-name" class="login-name"></span>
+                  </div>
+            </div>
+        </nav>
+        <nav>
+    </header>
+    <main>
+        <section class="last-trips w-90">
+            <h1 class="text-center">Últimos viajes publicados</h1>
+            <!-- last trips grid -->
+            <table cellpadding="0" cellspacing="0" class="table">
+                <thead>
+                <tr>
+                        <th scope="col">
+                            Fecha y hora
+                        </th>
+                        <th scope="col">
+                            Origen
+                        </th>
+                        <th scope="col">
+                            Destino
+                        </th>
+                        <th scope="col" align="center" style="text-align: center;">
+                            Asientos Disponibles
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="last-trips-container">
+                    
+                </tbody>
+            </table>    
+        </section>
+        <!-- search trips -->
+    <section class="home-how-it-works">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <h2 class="mb-3">BUSCAR VIAJES desde <label id="cheaper-price"></label></h2>
+                <form id="search-form" class="form-container">
+                  <div class="row">
+                  <div class="col-4">
+                    <div class="form-group">
+                      <select id="from-field" class="form-control">
+                          <optgroup>
+                              <option disabled>Seleccione Origen</option>
+                              <option value="Artigas">Artigas</option>
+                              <option value="Canelones">Canelones</option>
+                              <option value="Cerro Largo">Cerro Largo</option>
+                              <option value="Colonia">Colonia</option>
+                              <option value="Durazno">Durazno</option>
+                              <option value="Flores">Flores</option>
+                              <option value="Florida">Florida</option>
+                              <option value="Lavalleja">Lavalleja</option>
+                              <option value="Maldonado">Maldonado</option>
+                              <option value="Montevideo">Montevideo</option>
+                              <option value="Paysandú">Paysandú</option>
+                              <option value="Río Negro">Río Negro</option>
+                              <option value="Rivera">Rivera</option>
+                              <option value="Rocha">Rocha</option>
+                              <option value="Salto">Salto</option>
+                              <option value="San José">San José</option>
+                              <option value="Soriano">Soriano</option>
+                              <option value="Tacuarembó">Tacuarembó</option>
+                              <option value="Treinta y Tres">Treinta y Tres</option>
+                          </optgroup>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                      <select id="to-field" class="form-control">
+                          <optgroup>
+                              <option disabled>Seleccione Destino</option>
+                              <option value="Artigas">Artigas</option>
+                              <option value="Canelones">Canelones</option>
+                              <option value="Cerro Largo">Cerro Largo</option>
+                              <option value="Colonia">Colonia</option>
+                              <option value="Durazno">Durazno</option>
+                              <option value="Flores">Flores</option>
+                              <option value="Florida">Florida</option>
+                              <option value="Lavalleja">Lavalleja</option>
+                              <option value="Maldonado">Maldonado</option>
+                              <option value="Montevideo">Montevideo</option>
+                              <option value="Paysandú">Paysandú</option>
+                              <option value="Río Negro">Río Negro</option>
+                              <option value="Rivera">Rivera</option>
+                              <option value="Rocha">Rocha</option>
+                              <option value="Salto">Salto</option>
+                              <option value="San José">San José</option>
+                              <option value="Soriano">Soriano</option>
+                              <option value="Tacuarembó">Tacuarembó</option>
+                              <option value="Treinta y Tres">Treinta y Tres</option>
+                          </optgroup>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <button id="search-button" type="submit" class="btn btn-success w-100">Buscar</button>
+                  </div>
+                </div>
+                </form>
+                <ul id="trips-list" class="list-group list-group-flush mt-3">
+                </ul>
+                <div id="messages-container" class="alert alert-warning alert-dismissible fade show mt-1" role="alert"></div>
+                <div id="last-search-container" class="alert alert-light mt-1" role="alert"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- download buttons -->
+      <section class="main-download-container">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <a href="#" class="btn btn-primary ios-download">
+                <i class="fa-brands fa-apple"></i>
+                Descarga iOS
+              </a>
+              <a href="#" class="btn btn-primary android-download">
+                <i class="fa-brands fa-android"></i>
+                Descarga Android
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- footer -->
+    <footer>
+        <div class="row">
+          <div class="col-8">
+            <div class="social-networks-container">
+              <a href="#">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="#">
+                <i class="fa fa-instagram"></i>
+              </a>
+              @tutuappuy 
+            </div>
+            Todos los derechos reservados © - 2022
+          </div>
+          <div class="col-4">
+            <img src="../assets/img/logo-extended-tutu-cyan.svg" alt="Logo TuTuAPP" width="150px" />
+          </div>
+        </div>
+      </footer>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../js/tutu_app.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+[
+    {"fecha": "17/07/2022 - 9:30 horas", "origen": "montevideo", "destino": "paysandú", "usuario": "Francisco", "asientosLibres": 3, "precio": 300},
+    {"fecha": "24/07/2022 - 10:00 horas", "origen": "montevideo", "destino": "rivera", "usuario": "Ramiro", "asientosLibres": 2, "precio": 645},
+    {"fecha": "09/07/2022 - 8:15 horas", "origen": "montevideo", "destino": "rocha", "usuario": "Mario", "asientosLibres": 1, "precio": 350},
+    {"fecha": "12/08/2022 - 18:50 horas", "origen": "montevideo", "destino": "salto", "usuario": "Daniela", "asientosLibres": 1, "precio": 1075},
+    {"fecha": "13/07/2022 - 21:30 horas", "origen": "montevideo", "destino": "colonia", "usuario": "Fiorela", "asientosLibres": 2, "precio": 890}
+]
